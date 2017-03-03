@@ -9051,101 +9051,99 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
-var _user$project$RPS$moveToString = function (possibleMove) {
-	var _p0 = possibleMove;
-	if (_p0.ctor === 'Nothing') {
-		return '';
-	} else {
-		var _p1 = _p0._0;
-		switch (_p1.ctor) {
-			case 'Rock':
-				return 'rock';
-			case 'Paper':
-				return 'paper';
-			default:
-				return 'scissors';
-		}
-	}
+var _user$project$RPS$moveToString = function (_p0) {
+	return _elm_lang$core$String$toLower(
+		_elm_lang$core$Basics$toString(_p0));
 };
 var _user$project$RPS$displayPlayerChoice = function (model) {
-	return _elm_lang$core$Native_Utils.eq(model.playerMove, _elm_lang$core$Maybe$Nothing) ? _elm_lang$html$Html$text('') : A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('info small'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text('You choose: '),
-			_1: {
+	var _p1 = model.playerMove;
+	if (_p1.ctor === 'Nothing') {
+		return _elm_lang$html$Html$text('');
+	} else {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
 				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$img,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$src(
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								'dist/images/',
+				_0: _elm_lang$html$Html_Attributes$class('info small'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('You choose: '),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$img,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$src(
 								A2(
 									_elm_lang$core$Basics_ops['++'],
-									_user$project$RPS$moveToString(model.playerMove),
-									'.svg'))),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$width(32),
+									'dist/images/',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_user$project$RPS$moveToString(_p1._0),
+										'.svg'))),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$height(32),
-								_1: {ctor: '[]'}
+								_0: _elm_lang$html$Html_Attributes$width(32),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$height(32),
+									_1: {ctor: '[]'}
+								}
 							}
-						}
-					},
-					{ctor: '[]'}),
-				_1: {ctor: '[]'}
-			}
-		});
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
+				}
+			});
+	}
 };
 var _user$project$RPS$displayOpponentChoice = function (model) {
-	return _elm_lang$core$Native_Utils.eq(model.randMove, _elm_lang$core$Maybe$Nothing) ? _elm_lang$html$Html$text('') : A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('info small'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text('Opponent chooses: '),
-			_1: {
+	var _p2 = model.randMove;
+	if (_p2.ctor === 'Nothing') {
+		return _elm_lang$html$Html$text('');
+	} else {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
 				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$img,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$src(
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								'dist/images/',
+				_0: _elm_lang$html$Html_Attributes$class('info small'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Opponent chooses: '),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$img,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$src(
 								A2(
 									_elm_lang$core$Basics_ops['++'],
-									_user$project$RPS$moveToString(model.randMove),
-									'.svg'))),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$width(32),
+									'dist/images/',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_user$project$RPS$moveToString(_p2._0),
+										'.svg'))),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$height(32),
-								_1: {ctor: '[]'}
+								_0: _elm_lang$html$Html_Attributes$width(32),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$height(32),
+									_1: {ctor: '[]'}
+								}
 							}
-						}
-					},
-					{ctor: '[]'}),
-				_1: {ctor: '[]'}
-			}
-		});
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
+				}
+			});
+	}
 };
 var _user$project$RPS$model = {playerMove: _elm_lang$core$Maybe$Nothing, randMove: _elm_lang$core$Maybe$Nothing};
 var _user$project$RPS$Model = F2(
@@ -9156,8 +9154,8 @@ var _user$project$RPS$Scissors = {ctor: 'Scissors'};
 var _user$project$RPS$Paper = {ctor: 'Paper'};
 var _user$project$RPS$Rock = {ctor: 'Rock'};
 var _user$project$RPS$idxToMove = function (idx) {
-	var _p2 = idx;
-	switch (_p2) {
+	var _p3 = idx;
+	switch (_p3) {
 		case 1:
 			return _user$project$RPS$Rock;
 		case 2:
@@ -9180,14 +9178,14 @@ var _user$project$RPS$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _p3 = msg;
-			switch (_p3.ctor) {
+			var _p4 = msg;
+			switch (_p4.ctor) {
 				case 'Choose':
 					var _v4 = _user$project$RPS$GenerateMove,
 						_v5 = _elm_lang$core$Native_Utils.update(
 						model,
 						{
-							playerMove: _elm_lang$core$Maybe$Just(_p3._0)
+							playerMove: _elm_lang$core$Maybe$Just(_p4._0)
 						});
 					msg = _v4;
 					model = _v5;
@@ -9204,7 +9202,7 @@ var _user$project$RPS$update = F2(
 						_0: _elm_lang$core$Native_Utils.update(
 							model,
 							{
-								randMove: _elm_lang$core$Maybe$Just(_p3._0)
+								randMove: _elm_lang$core$Maybe$Just(_p4._0)
 							}),
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
@@ -9219,10 +9217,10 @@ var _user$project$RPS$Lose = {ctor: 'Lose'};
 var _user$project$RPS$Win = {ctor: 'Win'};
 var _user$project$RPS$outcome = F2(
 	function (move1, move2) {
-		var _p4 = {ctor: '_Tuple2', _0: move1, _1: move2};
-		switch (_p4._0.ctor) {
+		var _p5 = {ctor: '_Tuple2', _0: move1, _1: move2};
+		switch (_p5._0.ctor) {
 			case 'Rock':
-				switch (_p4._1.ctor) {
+				switch (_p5._1.ctor) {
 					case 'Rock':
 						return _user$project$RPS$Tie;
 					case 'Paper':
@@ -9231,7 +9229,7 @@ var _user$project$RPS$outcome = F2(
 						return _user$project$RPS$Win;
 				}
 			case 'Paper':
-				switch (_p4._1.ctor) {
+				switch (_p5._1.ctor) {
 					case 'Rock':
 						return _user$project$RPS$Win;
 					case 'Paper':
@@ -9240,7 +9238,7 @@ var _user$project$RPS$outcome = F2(
 						return _user$project$RPS$Lose;
 				}
 			default:
-				switch (_p4._1.ctor) {
+				switch (_p5._1.ctor) {
 					case 'Rock':
 						return _user$project$RPS$Lose;
 					case 'Paper':
@@ -9252,11 +9250,11 @@ var _user$project$RPS$outcome = F2(
 	});
 var _user$project$RPS$outcomeToString = F2(
 	function (possibleMove1, possibleMove2) {
-		var _p5 = {ctor: '_Tuple2', _0: possibleMove1, _1: possibleMove2};
-		if (_p5._0.ctor === 'Nothing') {
+		var _p6 = {ctor: '_Tuple2', _0: possibleMove1, _1: possibleMove2};
+		if (_p6._0.ctor === 'Nothing') {
 			return '';
 		} else {
-			if (_p5._1.ctor === 'Nothing') {
+			if (_p6._1.ctor === 'Nothing') {
 				return '';
 			} else {
 				return A2(
@@ -9266,7 +9264,7 @@ var _user$project$RPS$outcomeToString = F2(
 						_elm_lang$core$Basics_ops['++'],
 						_elm_lang$core$String$toLower(
 							_elm_lang$core$Basics$toString(
-								A2(_user$project$RPS$outcome, _p5._0._0, _p5._1._0))),
+								A2(_user$project$RPS$outcome, _p6._0._0, _p6._1._0))),
 						'.'));
 			}
 		}
@@ -9379,7 +9377,7 @@ var _user$project$RPS$main = _elm_lang$html$Html$program(
 	{
 		view: _user$project$RPS$view,
 		update: _user$project$RPS$update,
-		subscriptions: function (_p6) {
+		subscriptions: function (_p7) {
 			return _elm_lang$core$Platform_Sub$none;
 		},
 		init: {ctor: '_Tuple2', _0: _user$project$RPS$model, _1: _elm_lang$core$Platform_Cmd$none}

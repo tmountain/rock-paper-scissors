@@ -107,22 +107,9 @@ outcomeToString possibleMove1 possibleMove2 =
             "You " ++ (outcome move1 move2 |> toString |> String.toLower) ++ "."
 
 
-moveToString : Maybe Move -> String
-moveToString possibleMove =
-    case possibleMove of
-        Nothing ->
-            ""
-
-        Just move ->
-            case move of
-                Rock ->
-                    "rock"
-
-                Paper ->
-                    "paper"
-
-                Scissors ->
-                    "scissors"
+moveToString : Move -> String
+moveToString =
+    String.toLower << toString
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -146,24 +133,28 @@ update msg model =
 
 displayPlayerChoice : Model -> Html Msg
 displayPlayerChoice model =
-    if model.playerMove == Nothing then
-        text ""
-    else
-        div [ class "info small" ]
-            [ text "You choose: "
-            , img [ src ("dist/images/" ++ moveToString model.playerMove ++ ".svg"), width 32, height 32 ] []
-            ]
+    case model.playerMove of
+        Nothing ->
+            text ""
+
+        Just move ->
+            div [ class "info small" ]
+                [ text "You choose: "
+                , img [ src ("dist/images/" ++ moveToString move ++ ".svg"), width 32, height 32 ] []
+                ]
 
 
 displayOpponentChoice : Model -> Html Msg
 displayOpponentChoice model =
-    if model.randMove == Nothing then
-        text ""
-    else
-        div [ class "info small" ]
-            [ text "Opponent chooses: "
-            , img [ src ("dist/images/" ++ moveToString model.randMove ++ ".svg"), width 32, height 32 ] []
-            ]
+    case model.randMove of
+        Nothing ->
+            text ""
+
+        Just move ->
+            div [ class "info small" ]
+                [ text "Opponent chooses: "
+                , img [ src ("dist/images/" ++ moveToString move ++ ".svg"), width 32, height 32 ] []
+                ]
 
 
 view : Model -> Html Msg
