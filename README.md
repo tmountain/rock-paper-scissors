@@ -1,2 +1,2 @@
-# rock-paper-scissors
-Rock Paper Scissors Elm Demo
+# Rock Paper Scissors in Elm
+Tiny Demo
