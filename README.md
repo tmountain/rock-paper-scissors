@@ -1,2 +1,2 @@
 # Rock Paper Scissors in Elm
-Tiny Demo
+Tiny Demo.
